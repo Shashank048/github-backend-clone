@@ -18,7 +18,10 @@ const { revertRepo } = require("./controllers/revert");
 const mainRouter = require("./routes/main.router");
 
 dotenv.config();
-
+app.use(cors({
+  origin: 'https://github-clone-frontend-git-main-shashanks-projects-8e35dfa3.vercel.app/auth',
+  credentials: true
+}));
 yargs(hideBin(process.argv))
     .command("start", "Starts new server", {}, startServer)
     .command("init", "Initialise a new repository", {}, initRepo)
